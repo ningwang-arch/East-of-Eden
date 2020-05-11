@@ -1,0 +1,43 @@
+{
+    "code-runner.runInTerminal": true, // 设置成false会在“输出”中输出，无法输入
+    "code-runner.saveFileBeforeRun": true, // run code前保存
+    "code-runner.preserveFocus": false, // 若为false，run code后光标会聚焦到终端上。如果需要频繁输入数据可设为false
+    "code-runner.ignoreSelection": true, // 默认为false，效果是鼠标选中一块代码后可以单独执行
+    "code-runner.clearPreviousOutput": true, // 每次run code前清空属于code runner的终端消息，默认false
+    "editor.cursorSmoothCaretAnimation": true, // 移动光标时变得平滑
+    "editor.smoothScrolling": true, // 滚动平滑，不过效果很微弱
+    "files.trimTrailingWhitespace": true, // 保存时，删除每一行末尾的空格
+    "files.insertFinalNewline": true, // 保存后文件最末尾加一整行空行，Linux下的习惯
+    "git.ignoreLegacyWarning": true,
+    "workbench.iconTheme": "vscode-icons", //启用vscode图标
+    "python.pythonPath": "D:\\PYTHONtest\\python.exe", // python3路径
+    "editor.lineHeight": 15, // 编辑器中的行高
+    "editor.fontSize": 11, // 编辑器中的字体
+    "editor.wordWrap": "on",
+    "editor.formatOnSave": true, //编辑器自动保存
+    "python.linting.flake8Enabled": true, //启用flake8，首先需要pip3 install falke8
+    "python.formatting.provider": "yapf", ///启用yapf，首先需要pip3 install yapf
+    "editor.renderIndentGuides": false,
+    "path-intellisense.autoSlashAfterDirectory": true,
+    "path-intellisense.extensionOnImport": true,
+    "python.linting.pylintArgs": [
+        "--load-plugins",
+        "pylint_django",
+        "--disable-msg=C0111"
+    ], // 忽略的警告信息
+    //"editor.fontFamily": "monospace",
+    "terminal.integrated.fontFamily": "Fira Code, 'Courier New', monospace",
+    "editor.fontWeight": "normal",
+    "terminal.integrated.fontWeight": "100",
+    "terminal.integrated.fontWeightBold": "100",
+    "python.linting.pylintEnabled": false,
+    "python.linting.enabled": true,
+    "editor.fontFamily": "Fira Code Light, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "python.linting.flake8Args": [
+        "--max-line-length=2048"
+    ],
+    "winopacity.opacity": 255,
+    "fileheader.tpl": "# @Author: {author}\r\n# @Date: {createTime}\r\n# @Last Modified by:   {lastModifiedBy}\r\n# @Last Modified time: {updateTime}\r\n\r\n",
+    "fileheader.Author": "eclipse",
+}
