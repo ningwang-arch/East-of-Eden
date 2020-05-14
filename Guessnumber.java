@@ -14,7 +14,7 @@ public class Guessnumber {
                 System.out.println("你猜的数字 "+guess+" 过小");
             }else if(guess>num)
             {
-                System.out.println("你猜的数字"+guess+"过大");
+                System.out.println("你猜的数字 "+guess+" 过大");
             }else{
                 System.out.println("恭喜你猜对了");
                 break;
