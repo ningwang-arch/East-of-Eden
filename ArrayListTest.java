@@ -18,5 +18,6 @@ public class ArrayListTest {
         array.set(2, "nothing");
         System.out.println("array:"+array);
         System.out.println(array.get(2));
+        System.out.println(array.size());
     }
 }
