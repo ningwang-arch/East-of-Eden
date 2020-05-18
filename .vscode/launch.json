@@ -6,18 +6,11 @@
     "configurations": [
         {
             "type": "java",
-            "name": "CodeLens (Launch) - hello",
-            "request": "launch",
-            "mainClass": "hello",
-            "projectName": "java_f58e9161"
-        },
-        {
-            "type": "java",
             "name": "Debug (Launch) - Current File",
             "request": "launch",
             "mainClass": "${file}",
             "console": "integratedTerminal",
-            "encoding": "GBK"
+            "encoding": "UTF-8"
         }
     ]
 }
