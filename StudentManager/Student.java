@@ -39,5 +39,5 @@ public class Student {
     public String getAddr(){
         return addr;
     }
-    
+
 }
