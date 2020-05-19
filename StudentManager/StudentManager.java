@@ -61,6 +61,7 @@ public class StudentManager {
         //判断学号是否已使用
         if(!idISExist(array,sid)) {
             System.out.println("学号已存在,添加失败");
+            sc.close();
             return;
         }
 
@@ -80,6 +81,7 @@ public class StudentManager {
         //将学生对象添加到集合中
         array.add(s);
         System.out.println("添加成功!");
+        sc.close();
     }
     //显示所有学生信息
     public static void showAllStudent(ArrayList<Student> array){
@@ -105,10 +107,12 @@ public class StudentManager {
             if (s.getSid().equals(sid)){
                 array.remove(i);
                 System.out.println("删除成功");
+                sc.close();
                 return;
             }
         }
         System.out.println("信息不存在,删除失败");
+        sc.close();
     }
     //修改学生信息
     public static void updateStudent(ArrayList<Student> array){
@@ -118,6 +122,7 @@ public class StudentManager {
         //判断学号是否存在  不存在则返回失败
         if(idISExist(array,sid)){
             System.out.println("学号不存在,修改失败");
+            sc.close();
             return;
         }
 
@@ -141,7 +146,7 @@ public class StudentManager {
                 break;
             }
         }
-
+        sc.close();
     }
     //判断学号是否存在  存在false 不存在true
     public static boolean idISExist(ArrayList<Student> array,String id){
