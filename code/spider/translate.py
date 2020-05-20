@@ -50,20 +50,20 @@ def translation(word, language):
         'User-Agent':
         'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36',
     }
-    response = requests.post(url, headers=header, data=formdata)
-    result = eval(response.text)
-
-    # print(result)
-
     try:
-        result = result['smartResult']['entries']
-        while ('' in result):
-            result.remove('')
-        result = [i.replace('\n', '').replace('\r', '') for i in result]
+        response = requests.post(url, headers=header, data=formdata)
+        result = eval(response.text)
+        try:
+            result = result['smartResult']['entries']
+            while ('' in result):
+                result.remove('')
+            result = [i.replace('\n', '').replace('\r', '') for i in result]
+        except Exception:
+            result = result['translateResult'][0][0]['tgt']
+            result = [i.replace('\n', '').replace('\r', '') for i in result]
+            result = ''.join(result)
     except Exception:
-        result = result['translateResult'][0][0]['tgt']
-        result = [i.replace('\n', '').replace('\r', '') for i in result]
-        result = ''.join(result)
+        result = None
     print(result)
     print()
 
