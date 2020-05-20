@@ -12,8 +12,11 @@ def create(path):  # 创建文件夹函数，输入路径
 
 #  create("D:\\testpic")  # 创建总文件夹pixiv box
 Error = []  # 创建错误列表
-for i in range(11, 21):
-    list_url = 'http://pic.netbian.com/index_{}.html'.format(i)
+for i in range(1, 11):
+    if (i == 1):
+        list_url = 'http://pic.netbian.com/index.html'
+    else:
+        list_url = 'http://pic.netbian.com/index_{}.html'.format(i)
     header = {
         'Referer': 'http://pic.netbian.com/index.html',
         'User-Agent':
