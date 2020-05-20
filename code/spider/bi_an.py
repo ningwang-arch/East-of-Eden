@@ -10,7 +10,7 @@ def create(path):  # 创建文件夹函数，输入路径
     os.makedirs(path)
 
 
-#  create("D:\\testpic")  # 创建总文件夹pixiv box
+#  create("D:\\testpic")  
 Error = []  # 创建错误列表
 for i in range(1, 11):
     if (i == 1):
