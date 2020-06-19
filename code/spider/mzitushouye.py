@@ -1,9 +1,7 @@
-
 # @Author: eclipse
 # @Date: 2020-05-08 14:25:51
 # @Last Modified by:   eclipse
 # @Last Modified time: 2020-05-08 14:25:51
-
 
 import requests
 from lxml import etree
@@ -28,9 +26,10 @@ def get_picture(url, name):
     html = response.content.decode()
     element = etree.HTML(html)
     url_next = element.xpath('//div[@class="main-image"]/p/a//@href')[0]
-    img_url = element.xpath('//div[@class="main-image"]/p/a/img//@src')[0]
-    img = requests.get(img_url, headers=header)
     try:
+        img_url = element.xpath('//div[@class="main-image"]/p/a/img//@src')[0]
+        img = requests.get(img_url, headers=header)
+
         path = "D:\\mzitu\\{}.jpg".format(name)
         with open(path, 'wb') as f:
             f.write(img.content)
