@@ -1,22 +1,23 @@
 import os
 import hashlib
-filePath = 'D:\\testpic'
-img_names_list = os.listdir(filePath)
+temp_path = input('请将要去重的文件夹路径复制至此处:')
+filePath = temp_path.replace('\\', '\\\\')
+item_names_list = os.listdir(filePath)
 hash_dict = {}
-for img in img_names_list:
-    file = open('D:\\testpic\\{}'.format(img), 'rb')
+for item in item_names_list:
+    file = open(filePath + '\\{}'.format(item), 'rb')
     file = file.read()
     ret = hashlib.md5(file).hexdigest()
-    hash_dict[img] = ret
+    hash_dict[item] = ret
 
 values = set()
-imgs_del = []
+items_del = []
 for key in hash_dict.keys():
     val = hash_dict[key]
     if val in values:
-        imgs_del.append(key)
+        items_del.append(key)
     else:
         values.add(val)
 
-for img_del in imgs_del:
-    os.remove('D:\\testpic\\{}'.format(img_del))
+for item_del in items_del:
+    os.remove(filePath + '\\{}'.format(item_del))
