@@ -78,13 +78,9 @@ class BiliSpider():
 
     def run(self):
         page_urls = self.get_page_urls(self.api)
-        i = 0
         for page_url in page_urls:
             video_url, audio_url = self.get_video_audio_url(page_url)
             self.download_video_audio(video_url, audio_url)
-            i += 1
-            if (i == 3):
-                break
 
 
 api = 'https://api.bilibili.com/x/tag/ranking/archives?tag_id=3274&rid=25&type=0&pn=1&jsonp=jsonp'
