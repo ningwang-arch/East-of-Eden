@@ -1,5 +1,7 @@
 import requests
 from lxml import etree
+from PIL import Image
+import re
 # import re
 
 
@@ -14,9 +16,9 @@ def create(path):  # 创建文件夹函数，输入路径
 Error = []  # 创建错误列表
 for i in range(1, 11):
     if (i == 1):
-        list_url = 'http://pic.netbian.com/index.html'
+        list_url = 'http://pic.netbian.com/4kdongman/index.html'
     else:
-        list_url = 'http://pic.netbian.com/index_{}.html'.format(i)
+        list_url = 'http://pic.netbian.com/4kdongman/index_{}.html'.format(i)
     header = {
         'Referer': 'http://pic.netbian.com/index.html',
         'User-Agent':
@@ -38,14 +40,22 @@ for i in range(1, 11):
         # print(url)
         url_response = requests.get(url, headers=header).content.decode('GBK')
         element = etree.HTML(url_response)
+        temp = element.xpath(
+            '//*[@id="main"]/div[2]/div[2]/div[1]/a/text()')[0]
+        size = re.findall(r'\d*\d', temp)
         img_url = 'http://pic.netbian.com/' + element.xpath(
             '//*[@id="img"]/img/@src')[0]
         # print(img_url)
         img = requests.get(img_url, headers=header)
         try:
-            path = "D:\\testpic\\{}.jpg".format(name[j])
+            path = "D:\\testpic\\{}.png".format(name[j])
             with open(path, 'wb') as f:
                 f.write(img.content)
+                img = Image.open(path)
+                img = img.resize((int(size[0]), int(size[1])),
+                                 Image.ANTIALIAS)  # 改变大小 抗锯齿
+                # print(img.size)
+                img.save(path, quality=95)
                 print(name[j] + ' OK')
         except Exception:
             Error.append(name[j])
