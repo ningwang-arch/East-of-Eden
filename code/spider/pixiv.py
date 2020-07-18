@@ -1,3 +1,5 @@
+# 此爬虫对应网站已挂
+
 import requests
 import time
 import threading

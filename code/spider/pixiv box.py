@@ -1,4 +1,6 @@
 # 这个爬虫对应的网站挂了  后续补充一个新网站对应的爬虫 爬虫结构没问题
+
+# 2020.7.18 更新 这个网站恢复了,此爬虫可正常使用,之前更新的pixiv.py里的那个网站挂了
 import requests
 from lxml import etree
 import re
