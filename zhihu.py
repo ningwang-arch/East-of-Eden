@@ -60,17 +60,36 @@ def zhihu_question_id_spider(question):
             break
         # print(data)
         for item in page_data:
-            item_object = item['object']
-            question_name_id_dict = {}
-            if 'question' in item_object:
-                question_name_id_dict['name'] = item_object['question'][
-                    'name'].replace('<em>', '').replace('</em>', '')
-                question_name_id_dict['id'] = item_object['question']['id']
-                # print(question_name_id_dict)
+            if 'object' in item:
+                item_object = item['object']
+                question_name_id_type_dict = {}
+                if 'type' in item_object:
+                    if item_object['type'] == 'answer':
+                        question_name_id_type_dict['name'] = item_object[
+                            'question']['name'].replace('<em>', '').replace(
+                                '</em>', '')
+                        question_name_id_type_dict['id'] = item_object[
+                            'question']['id']
+                        question_name_id_type_dict['type'] = 'question'
+                    elif item_object['type'] == 'article':
+                        question_name_id_type_dict['name'] = item_object[
+                            'title'].replace('<em>', '').replace('</em>', '')
+                        question_name_id_type_dict['id'] = item_object['id']
+                        question_name_id_type_dict['type'] = 'article'
+                    elif item_object['type'] == 'topic':
+                        question_name_id_type_dict['name'] = item_object[
+                            'name']
+                        question_name_id_type_dict['id'] = item_object['id']
+                        question_name_id_type_dict['type'] = 'topic'
+                    else:
+                        continue
+                else:
+                    continue
+
                 with open('{}.txt'.format(data['q']), 'a',
                           encoding='utf-8') as f:
                     f.write(
-                        json.dumps(question_name_id_dict,
+                        json.dumps(question_name_id_type_dict,
                                    ensure_ascii=False,
                                    indent=2))
                     f.write('\n')
