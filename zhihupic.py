@@ -43,5 +43,5 @@ def zhihuPicSpider(question_id):
 
 
 if __name__ == '__main__':
-    question_id = 376376914
+    question_id = 0  # question_id为自定义  自行查找填补
     zhihuPicSpider(question_id)
