@@ -7,7 +7,7 @@ import os
 import re
 import threading
 
-logging.basicConfig(filename='/home/eclipse/Pictures/alpha.log',
+logging.basicConfig(filename='/your/log/path/alpha.log',
                     level=logging.INFO,
                     format='%(asctime)s %(filename)s %(message)s',
                     datefmt='%m-%d %H:%M:%S',
